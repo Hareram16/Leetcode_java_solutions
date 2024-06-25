@@ -1,0 +1,19 @@
+class Solution {
+    public int reverse(int x) {
+        int rev=0;
+        while(x!=0){
+            int a=x%10;
+            if((rev>(Integer.MAX_VALUE-a)/10)&&0<x) // this if loop returns 0 when number is larger than the limit of integer number
+            {largr
+                return 0;
+            }
+           if((rev<(Integer.MIN_VALUE-a)/10)&&0>x) //this if loop returns 0 when number is smaller than the limit of integer number
+           {
+            return 0;
+           }
+            rev=rev*10+a;
+             x= x/10;
+        }
+        return rev;
+    }
+}
