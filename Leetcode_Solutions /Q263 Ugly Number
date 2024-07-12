@@ -1,0 +1,29 @@
+class Solution {
+    public boolean isUgly(int n) {
+        if (n == 0)
+            return false;
+        // divide by 2
+        while (true) {
+            if (n % 2 != 0)
+                break;
+            n /= 2;
+        }
+
+        // divide by 3
+        while (true) {
+            if (n % 3 != 0)
+                break;
+            n /= 3;
+        }
+
+        // divide by 5
+        while (true) {
+            if (n % 5 != 0)
+                break;
+            n /= 5;
+        }
+
+        return (n == 1);
+        
+    }
+}
