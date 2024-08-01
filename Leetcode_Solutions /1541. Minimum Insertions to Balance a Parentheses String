@@ -1,0 +1,27 @@
+class Solution {
+    public int minInsertions(String s) {
+        Stack<Character>stack=new Stack<>();
+        int c1=0,c2=0;
+        for(char ch:s.toCharArray())
+        {
+            if(ch=='(')
+            {if(c1%2>0)
+            {
+               c1--;
+               c2++;
+            }
+            c1+=2;
+            }
+            else
+            {
+               c1--;
+               if(c1<0)
+               {
+                c1+=2;
+                c2++;
+               }
+            }
+        }
+        return c2+c1;
+    }
+}
