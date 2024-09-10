@@ -1,0 +1,58 @@
+class Solution {
+    public int orangesRotting(int[][] grid) {
+        for(int i=0;i<grid.length;i++)
+        {
+            for(int j=0;j<grid[0].length;j++)
+            {
+                if(grid[i][j]==2)
+                {
+                    infect(grid,i,j);
+                }
+            }
+        }
+        int mintime=2;
+        for(int []row:grid)
+        {
+            for(int rorange:row)
+            {
+                if(rorange==1)
+                {
+                    return -1;
+                }
+                            
+                 if(rorange>mintime)  
+                 {
+                    mintime=rorange;
+                 }   
+            }      
+            }
+            return mintime-2;
+        }
+        
+    
+    void infect(int [] []grid,int i,int j)
+    {
+        int cp=grid[i][j];
+        if((i>0)&&(grid[i-1][j]==1||grid[i-1][j]>cp+1))
+        {
+            grid[i-1][j]=cp+1;
+            infect(grid,i-1,j);
+        }
+         if((j>0)&&(grid[i][j-1]==1||grid[i][j-1]>cp+1))
+        {
+            grid[i][j-1]=cp+1;
+            infect(grid,i,j-1);
+        }
+         if((i+1<grid.length)&&(grid[i+1][j]==1||grid[i+1][j]>cp+1))
+        {
+            grid[i+1][j]=cp+1;
+            infect(grid,i+1,j);
+        }
+         if((j+1<grid[0].length)&&(grid[i][j+1]==1||grid[i][j+1]>cp+1))
+        {
+            grid[i][j+1]=cp+1;
+            infect(grid,i,j+1);
+        }
+    }
+
+}
