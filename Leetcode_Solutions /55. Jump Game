@@ -1,0 +1,12 @@
+class Solution {
+    public boolean canJump(int[] nums) {
+        int n=nums.length;
+        if(nums==null || n==0) return false;
+        int ptr=0;
+        for(int i=0;i<n;i++){
+            if(i>ptr) return false;
+            ptr=Math.max(nums[i]+i,ptr);
+        }
+        return ptr>=n-1;
+    }
+}
