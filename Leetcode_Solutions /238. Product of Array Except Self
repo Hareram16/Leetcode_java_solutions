@@ -1,0 +1,29 @@
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int[] arrayMore = new int[nums.length];
+        int[] arrayLess = new int[nums.length];
+        int[] arrayResult = new int[nums.length];
+
+        int count = 1;
+        arrayMore[0] = 1;
+
+        for (int i = 1; i < nums.length; i++) {
+            count = nums[i - 1] * count;
+            arrayMore[i] = count;
+        }
+
+        count = 1;
+        arrayLess[nums.length - 1] = 1;
+
+        for (int i = nums.length - 2; i >= 0; i--) {
+            count = nums[i + 1] * count;
+            arrayLess[i] = count;
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            arrayResult[i] = arrayMore[i] * arrayLess[i];
+        }
+
+        return arrayResult;
+    }
+}
