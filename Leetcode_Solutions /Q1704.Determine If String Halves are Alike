@@ -1,0 +1,21 @@
+class Solution {
+    public boolean halvesAreAlike(String s) {
+        int n= s.length();
+        int lw=0,rw=0;
+        for(int i=0;i<n/2;i++)
+        {   
+            char c= Character.toLowerCase(s.charAt(i));
+            if(c=='a'||c=='e'||c=='i'||c=='o'||c=='u')
+            lw++;}
+            for(int j=n/2;j<n;j++)
+            {
+            char d= Character.toLowerCase(s.charAt(j));
+            if(d=='a'||d=='e'||d=='i'||d=='o'||d=='u')
+            rw++;
+
+        }
+        if(lw==rw)
+        return true;
+        return false;
+    }
+}Detr
